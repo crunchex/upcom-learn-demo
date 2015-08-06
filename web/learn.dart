@@ -5,6 +5,8 @@ import 'dart:html';
 
 import 'package:upcom-api/web/tab/tab_controller.dart';
 
+part 'templates.dart';
+
 class UpDroidLearn extends TabController {
   static final List<String> names = ['upcom-learn-demo', 'UpDroid Learn', 'Learn'];
 
