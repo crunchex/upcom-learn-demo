@@ -54,6 +54,21 @@ class UpDroidLearn extends TabController {
       ..classes.add('upcom-learn-lesson-text')
       ..text = lessonText;
     containerDiv.children.add(lessonTextParagraph);
+
+    ButtonElement manipulationButton = new ButtonElement()
+      ..classes.add('upcom-learn-manipulation-button')
+      ..text = '< manipulation >';
+    containerDiv.children.add(manipulationButton);
+
+    ButtonElement navigationButton = new ButtonElement()
+      ..classes.add('upcom-learn-navigation-button')
+      ..text = '< navigation >';
+    containerDiv.children.add(navigationButton);
+
+    ButtonElement joypadButton = new ButtonElement()
+      ..classes.add('upcom-learn-joypad-button')
+      ..text = '< joypad >';
+    containerDiv.children.add(joypadButton);
   }
 
   void registerMailbox() {

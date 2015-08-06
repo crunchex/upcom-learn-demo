@@ -25,6 +25,9 @@
     font-family: "Avenir Next LT Pro Bold";
 }
 
-.upcom-learn-lesson-text {
+.upcom-learn-lesson-text,
+.upcom-learn-manipulation-button,
+.upcom-learn-navigation-button,
+.upcom-learn-joypad-button {
     font-family:  "Monosten A", monospace;
 }
