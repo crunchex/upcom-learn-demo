@@ -4,6 +4,7 @@ import 'dart:async';
 import 'dart:html';
 
 import 'package:upcom-api/web/tab/tab_controller.dart';
+import 'package:upcom-api/tab_frontend.dart';
 
 part 'templates.dart';
 
@@ -20,6 +21,7 @@ class UpDroidLearn extends TabController {
 
   DivElement containerDiv;
   ImageElement image;
+  ButtonElement manipulationButton, navigationButton, joypadButton;
   int _width = 667;
   int _height = 527;
 
@@ -55,17 +57,17 @@ class UpDroidLearn extends TabController {
       ..text = lessonText;
     containerDiv.children.add(lessonTextParagraph);
 
-    ButtonElement manipulationButton = new ButtonElement()
+    manipulationButton = new ButtonElement()
       ..classes.add('upcom-learn-manipulation-button')
       ..text = '< manipulation >';
     containerDiv.children.add(manipulationButton);
 
-    ButtonElement navigationButton = new ButtonElement()
+    navigationButton = new ButtonElement()
       ..classes.add('upcom-learn-navigation-button')
       ..text = '< navigation >';
     containerDiv.children.add(navigationButton);
 
-    ButtonElement joypadButton = new ButtonElement()
+    joypadButton = new ButtonElement()
       ..classes.add('upcom-learn-joypad-button')
       ..text = '< joypad >';
     containerDiv.children.add(joypadButton);
@@ -77,6 +79,15 @@ class UpDroidLearn extends TabController {
 
   void registerEventHandlers() {
     window.onResize.listen((e) => _setDimensions());
+
+    manipulationButton.onClick.listen((e) => _requestOpenEditor());
+    navigationButton.onClick.listen((e) => _requestOpenEditor());
+    joypadButton.onClick.listen((e) => _requestOpenEditor());
+  }
+
+  void _requestOpenEditor() {
+    Msg m = new Msg('REQUEST_TAB', 'upcom-editor');
+    mailbox.ws.send(m.toString());
   }
 
   void _setDimensions() {

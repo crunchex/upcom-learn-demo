@@ -14,7 +14,11 @@ class CmdrLearn extends Tab {
   }
 
   void registerMailbox() {
+    mailbox.registerMessageHandler('REQUEST_TAB', _requestTab);
+  }
 
+  void _requestTab(String message) {
+    mailbox.relay(Tab.upcomName, -1, new Msg('REQUEST_TAB', message));
   }
 
   void cleanup() {
