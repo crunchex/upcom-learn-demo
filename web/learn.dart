@@ -80,13 +80,13 @@ class UpDroidLearn extends TabController {
   void registerEventHandlers() {
     window.onResize.listen((e) => _setDimensions());
 
-    manipulationButton.onClick.listen((e) => _requestOpenEditor());
-    navigationButton.onClick.listen((e) => _requestOpenEditor());
-    joypadButton.onClick.listen((e) => _requestOpenEditor());
+    manipulationButton.onClick.listen((e) => _requestOpenEditor(UpDroidLearnCode.manipulation));
+    navigationButton.onClick.listen((e) => _requestOpenEditor(UpDroidLearnCode.navigation));
+    joypadButton.onClick.listen((e) => _requestOpenEditor(UpDroidLearnCode.joypad));
   }
 
-  void _requestOpenEditor() {
-    Msg m = new Msg('REQUEST_TAB', 'upcom-editor');
+  void _requestOpenEditor(String code) {
+    Msg m = new Msg('REQUEST_TAB', 'upcom-editor:$code');
     mailbox.ws.send(m.toString());
   }
 
