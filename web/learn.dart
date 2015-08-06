@@ -73,7 +73,7 @@ class UpDroidLearn extends TabController {
     image.height = (image.width * _height / _width).toInt();
   }
 
-  Element get elementToFocus => null;
+  Element get elementToFocus => containerDiv;
 
   Future<bool> preClose() {
     Completer c = new Completer();
