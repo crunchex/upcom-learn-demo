@@ -41,6 +41,17 @@ class UpDroidLearn extends TabController {
       ..style.right = '0'
       ..style.transform = 'translateY(-50%)';
     containerDiv.children.add(image);
+
+    HeadingElement title = new HeadingElement.h1()
+      ..classes.add('upcom-learn-title')
+      ..text = 'Lesson 1: Pick and Place';
+    containerDiv.children.add(title);
+
+    const String lessonText = 'Commanding a robot to pick up an object requires (3) separate actions involving manipulation, navigation, and teleoperation. You can choose from one of these three to work on with the buttons below.';
+    ParagraphElement lessonTextParagraph = new ParagraphElement()
+      ..classes.add('upcom-learn-lesson-text')
+      ..text = lessonText;
+    containerDiv.children.add(lessonTextParagraph);
   }
 
   void registerMailbox() {

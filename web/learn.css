@@ -20,3 +20,11 @@
     /*right: 0;*/
     /*transform: translateY(-50%);*/
 /*}*/
+
+.upcom-learn-title {
+    font-family: "Avenir Next LT Pro Bold";
+}
+
+.upcom-learn-lesson-text {
+    font-family:  "Monosten A", monospace;
+}
