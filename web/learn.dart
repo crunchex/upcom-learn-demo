@@ -40,10 +40,7 @@ class UpDroidLearn extends TabController {
 
     // TODO: compress this svg (use that OS X tool).
     image = new ImageElement(src:'tabs/$refName/updroid-onearm.png')
-      ..style.position = 'absolute'
-      ..style.top = '50%'
-      ..style.right = '0'
-      ..style.transform = 'translateY(-50%)';
+      ..classes.add('updroid-onearm-img');
     containerDiv.children.add(image);
 
     HeadingElement title = new HeadingElement.h1()
@@ -57,20 +54,23 @@ class UpDroidLearn extends TabController {
       ..text = lessonText;
     containerDiv.children.add(lessonTextParagraph);
 
+    DivElement buttonGroup = new DivElement()
+      ..classes.add('upcom-learn-button-group');
+    containerDiv.children.add(buttonGroup);
+
     manipulationButton = new ButtonElement()
-      ..classes.add('upcom-learn-manipulation-button')
-      ..text = '< manipulation >';
-    containerDiv.children.add(manipulationButton);
+      ..classes.addAll(['btn-primary', 'upcom-learn-manipulation-button'])
+      ..text = 'manipulation';
 
     navigationButton = new ButtonElement()
-      ..classes.add('upcom-learn-navigation-button')
-      ..text = '< navigation >';
-    containerDiv.children.add(navigationButton);
+      ..classes.addAll(['btn-primary', 'upcom-learn-navigation-button'])
+      ..text = 'navigation';
 
     joypadButton = new ButtonElement()
-      ..classes.add('upcom-learn-joypad-button')
-      ..text = '< joypad >';
-    containerDiv.children.add(joypadButton);
+      ..classes.addAll(['btn-primary', 'upcom-learn-joypad-button'])
+      ..text = 'joypad';
+
+    buttonGroup.children.addAll([manipulationButton, navigationButton, joypadButton]);
   }
 
   void registerMailbox() {
