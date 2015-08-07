@@ -71,6 +71,8 @@ class UpDroidLearn extends TabController {
       ..text = 'joypad';
 
     buttonGroup.children.addAll([manipulationButton, navigationButton, joypadButton]);
+
+    _setDimensions();
   }
 
   void registerMailbox() {
@@ -79,6 +81,7 @@ class UpDroidLearn extends TabController {
 
   void registerEventHandlers() {
     window.onResize.listen((e) => _setDimensions());
+    view.content.onResize.listen((e) => _setDimensions());
 
     manipulationButton.onClick.listen((e) => _requestOpenEditor(UpDroidLearnCode.manipulation));
     navigationButton.onClick.listen((e) => _requestOpenEditor(UpDroidLearnCode.navigation));
