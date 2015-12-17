@@ -4,7 +4,7 @@ import 'dart:async';
 import 'dart:html';
 
 import 'package:upcom-api/web/tab/tab_controller.dart';
-import 'package:upcom-api/tab_frontend.dart';
+import 'package:upcom-api/web/mailbox/mailbox.dart';
 
 part 'templates.dart';
 
@@ -26,7 +26,7 @@ class UpDroidLearn extends TabController {
   int _height = 527;
 
   UpDroidLearn() :
-  super(UpDroidLearn.names, getMenuConfig(), 'tabs/upcom-learn-demo/learn.css') {
+  super(UpDroidLearn.names, true, true, getMenuConfig()) {
 
   }
 
@@ -34,12 +34,12 @@ class UpDroidLearn extends TabController {
     // Dummy div so that teleop fits with the onFocus API from tab controller.
     containerDiv = new DivElement()
       ..classes.add('upcom-learn-container');
-    view.content.children.add(containerDiv);
+    content.children.add(containerDiv);
 
-    view.content.contentEdge.height = new Dimension.percent(100);
+    content.contentEdge.height = new Dimension.percent(100);
 
     // TODO: compress this svg (use that OS X tool).
-    image = new ImageElement(src:'tabs/$refName/updroid-onearm.png')
+    image = new ImageElement(src:'plugins/$refName/updroid-onearm.png')
       ..classes.add('updroid-onearm-img');
     containerDiv.children.add(image);
 
@@ -81,7 +81,7 @@ class UpDroidLearn extends TabController {
 
   void registerEventHandlers() {
     window.onResize.listen((e) => _setDimensions());
-    view.content.onResize.listen((e) => _setDimensions());
+    content.onResize.listen((e) => _setDimensions());
 
     manipulationButton.onClick.listen((e) => _requestOpenEditor(UpDroidLearnCode.manipulation));
     navigationButton.onClick.listen((e) => _requestOpenEditor(UpDroidLearnCode.navigation));
@@ -94,7 +94,7 @@ class UpDroidLearn extends TabController {
   }
 
   void _setDimensions() {
-    var width = (view.content.contentEdge.width - 13);
+    var width = (content.contentEdge.width - 13);
 
     if (width <= _width) {
       image.width = width;

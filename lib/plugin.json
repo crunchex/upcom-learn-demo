@@ -1,5 +1,6 @@
 {
   "refName": "upcom-learn-demo",
   "fullName": "UpDroid Learn",
-  "shortName": "Learn"
+  "shortName": "Learn",
+  "types": "tab"
 }
